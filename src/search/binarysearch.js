@@ -9,7 +9,9 @@ class BinarySearch {
 
   run() {
     this.guess = this.calcGuess()
-
+    if (this.min >= this.max) {
+      return undefined
+    }
     if (this.array[this.guess] === this.numToFind) {
       return {
         num: this.array[this.guess],
@@ -17,9 +19,9 @@ class BinarySearch {
       }
     } else if (this.array[this.guess] < this.numToFind) {
       this.min = this.guess + 1
-    } else {
+    } else if (this.array[this.guess] > this.numToFind) {
       this.max = this.guess - 1
-    }
+    } 
     return this.run()
   }
 
